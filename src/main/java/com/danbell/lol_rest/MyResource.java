@@ -1,4 +1,4 @@
-package com.danbell.lol-rest;
+package com.danbell.lol_rest;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;

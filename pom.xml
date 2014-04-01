@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.danbell</groupId>
-    <artifactId>lol-rest</artifactId>
+    <artifactId>lol_rest</artifactId>
     <packaging>jar</packaging>
     <version>0.1</version>
     <name>lol-rest</name>
@@ -64,7 +64,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.danbell.lol-rest.Main</mainClass>
+                    <mainClass>com.danbell.lol_rest.Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
