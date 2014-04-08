@@ -1,14 +1,16 @@
 package com.danbell.lol_rest;
 
+import javax.xml.namespace.QName;
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.events.Attribute;
+import javax.xml.stream.events.StartElement;
 import javax.xml.stream.events.XMLEvent;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * AccountLoader Class
@@ -33,6 +35,20 @@ public class AccountLoader {
 
             while (er.hasNext()) {
                 XMLEvent event = er.nextEvent();
+
+                if (event.isStartElement()) {
+                    StartElement startElement = event.asStartElement();
+                    if (startElement.getName().getLocalPart().equals("account")) {
+                        Attribute username = startElement.getAttributeByName(new QName("username"));
+                        Attribute password = startElement.getAttributeByName(new QName("password"));
+                        Attribute region = startElement.getAttributeByName(new QName("region"));
+
+                        if (!(username == null || password == null || region == null)) {
+                            LolAccount account = new LolAccount(username.getValue(), password.getValue(), region.getValue());
+                            configAccounts.add(account);
+                        }
+                    }
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
