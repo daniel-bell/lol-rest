@@ -1,4 +1,4 @@
-package com.danbell.lol-rest;
+package com.danbell.lol_rest;
 
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
